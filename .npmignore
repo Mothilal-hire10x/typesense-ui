@@ -1,0 +1,59 @@
+# Build output
+dist
+dist-ssr
+*.local
+
+# Dependencies
+node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Development files
+src
+public
+index.html
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+.eslintrc.cjs
+postcss.config.js
+tailwind.config.js
+
+# Documentation (keep only essential ones in package)
+DEPLOYMENT_GUIDE.md
+DARK_MODE_IMPROVEMENTS.md
+UPGRADE_SUMMARY.md
+BEFORE_AFTER.md
+QUICK_REFERENCE.md
+SUCCESS.md
+UI_ENHANCEMENTS.md
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.github
+
+# Testing
+coverage
+.nyc_output
