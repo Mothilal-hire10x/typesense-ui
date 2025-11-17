@@ -29,12 +29,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/typesense-ui.git"
+    "url": "https://github.com/Mothilal-hire10x/typesense-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/typesense-ui/issues"
+    "url": "https://github.com/Mothilal-hire10x/typesense-ui/issues"
   },
-  "homepage": "https://github.com/yourusername/typesense-ui#readme",
+  "homepage": "https://github.com/Mothilal-hire10x/typesense-ui#readme",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
