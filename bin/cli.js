@@ -2,7 +2,6 @@
 
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { createServer } from "vite";
 import express from "express";
 import { readFileSync } from "fs";
 import { createServer as createHttpServer } from "http";
@@ -26,8 +25,10 @@ const isBuilt = (() => {
 
 // Get port from args or environment or default
 const args = process.argv.slice(2);
-const portArg = args.find(arg => arg.startsWith('--port='));
-const PORT = portArg ? parseInt(portArg.split('=')[1]) : (process.env.PORT || 3000);
+const portArg = args.find((arg) => arg.startsWith("--port="));
+const PORT = portArg
+  ? parseInt(portArg.split("=")[1])
+  : process.env.PORT || 3000;
 
 // Function to find an available port
 async function findAvailablePort(startPort) {
@@ -37,7 +38,7 @@ async function findAvailablePort(startPort) {
       const { port } = server.address();
       server.close(() => resolve(port));
     });
-    server.on('error', () => {
+    server.on("error", () => {
       // Port is in use, try next one
       resolve(findAvailablePort(startPort + 1));
     });
@@ -57,9 +58,11 @@ if (isBuilt) {
   // Find available port and start server
   (async () => {
     const availablePort = await findAvailablePort(PORT);
-    
+
     if (availablePort !== PORT) {
-      console.log(`⚠️  Port ${PORT} is in use, using port ${availablePort} instead\n`);
+      console.log(
+        `⚠️  Port ${PORT} is in use, using port ${availablePort} instead\n`
+      );
     }
 
     app.listen(availablePort, () => {
@@ -73,10 +76,15 @@ if (isBuilt) {
 } else {
   // Development mode - use Vite dev server
   (async () => {
-    const availablePort = await findAvailablePort(PORT);
+    // Dynamically import vite only in dev mode
+    const { createServer } = await import("vite");
     
+    const availablePort = await findAvailablePort(PORT);
+
     if (availablePort !== PORT) {
-      console.log(`⚠️  Port ${PORT} is in use, using port ${availablePort} instead\n`);
+      console.log(
+        `⚠️  Port ${PORT} is in use, using port ${availablePort} instead\n`
+      );
     }
 
     const server = await createServer({
