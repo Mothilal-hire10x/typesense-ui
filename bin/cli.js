@@ -78,7 +78,7 @@ if (isBuilt) {
   (async () => {
     // Dynamically import vite only in dev mode
     const { createServer } = await import("vite");
-    
+
     const availablePort = await findAvailablePort(PORT);
 
     if (availablePort !== PORT) {
